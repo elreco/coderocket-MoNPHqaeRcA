@@ -5,13 +5,12 @@ import { Label } from './components/ui/label';
 import './globals.css';
 function App() {
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
     // Here you would typically send the data to your backend
-    console.log('Form submitted:', { name, email });
+    console.log('Form submitted:', { email });
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-16">
@@ -26,18 +25,6 @@ function App() {
         </div>
         {!submitted ? (
           <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4 bg-white p-8 rounded-lg shadow-lg">
-            <div className="space-y-2 text-left">
-              <Label htmlFor="name">Name</Label>
-              <Input
-                id="name"
-                type="text"
-                placeholder="Your name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                className="w-full"
-              />
-            </div>
             <div className="space-y-2 text-left">
               <Label htmlFor="email">Email</Label>
               <Input
