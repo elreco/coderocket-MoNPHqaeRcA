@@ -18,7 +18,7 @@ function App() {
       <div className="max-w-2xl w-full text-center space-y-8">
         <div className="space-y-4">
           <h1 className="text-5xl md:text-6xl font-bold text-slate-900 tracking-tight">
-            Build Amazing Things
+            Build Amazing Things 2
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 max-w-xl mx-auto">
             Join thousands of developers who are creating the future. Get exclusive tips, resources, and updates delivered to your inbox.
