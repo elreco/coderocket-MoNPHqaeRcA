@@ -5,19 +5,27 @@ import { Label } from './components/ui/label';
 import './globals.css';
 function App() {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
     // Here you would typically send the data to your backend
-    console.log('Form submitted:', { email });
+    console.log('Form submitted:', { name, email });
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-16">
       <div className="max-w-2xl w-full text-center space-y-8">
-        <div className="space-y-4">
+        <div className="space-y-6">
+          <div className="w-full rounded-lg overflow-hidden shadow-xl">
+            <img 
+              src="https://jojdwiugelqhcajbccxn.supabase.co/storage/v1/object/public/images/1766239155375-75000060-f001-47f8-8b29-4f83ca1ef6a4-0.png"
+              alt="London street scene with red double-decker bus"
+              className="w-full h-auto object-cover"
+            />
+          </div>
           <h1 className="text-5xl md:text-6xl font-bold text-slate-900 tracking-tight">
-            Build Amazing Things fesses
+            Build Amazing Things
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 max-w-xl mx-auto">
             Join thousands of developers who are creating the future. Get exclusive tips, resources, and updates delivered to your inbox.
@@ -25,6 +33,18 @@ function App() {
         </div>
         {!submitted ? (
           <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4 bg-white p-8 rounded-lg shadow-lg">
+            <div className="space-y-2 text-left">
+              <Label htmlFor="name">Name</Label>
+              <Input
+                id="name"
+                type="text"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="w-full"
+              />
+            </div>
             <div className="space-y-2 text-left">
               <Label htmlFor="email">Email</Label>
               <Input
